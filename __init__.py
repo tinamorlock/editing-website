@@ -2,13 +2,15 @@ import os
 
 from flask import Flask
 
+# FLASK_APP = 'tinamarie'
+
 def create_app(test_config=None):
 
     # creates and configures the app
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
-        DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
+        DATABASE=os.path.join(app.instance_path, 'tinamarie.sqlite'),
     )
 
     if test_config is None:
@@ -26,5 +28,11 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+
+    # for testing: a simple page that says hello
+
+    @app.route('/hello')
+    def hello():
+        return 'Hello, World!'
 
     return app
