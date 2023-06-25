@@ -13,7 +13,6 @@ DROP TABLE IF EXISTS expenses;
 DROP TABLE IF EXISTS project_expenses;
 DROP TABLE IF EXISTS project_tasks;
 
-```sql
 
 CREATE TABLE users (
   user_id SERIAL PRIMARY KEY,
@@ -50,7 +49,6 @@ CREATE TABLE likes (
   FOREIGN KEY (author_id) REFERENCES user(user_id),
   FOREIGN KEY (post_id) REFERENCES post(post_id)
 );
-```
 
 CREATE TABLE follows (
   follow_id SERIAL PRIMARY KEY,
